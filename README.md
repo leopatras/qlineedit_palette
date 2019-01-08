@@ -1,0 +1,1 @@
+# qlineedit_palette
