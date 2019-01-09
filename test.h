@@ -1,15 +1,13 @@
-#include <QApplication>
-#include <QLineEdit>
-#include <QMainWindow>
-#include <QLayout>
+#include <QWidget>
+#include <QPalette>
 
-class MyLineEdit : public QLineEdit
+class MyWidget : public QWidget
 {
   Q_OBJECT
 
 public:
 
-  MyLineEdit( QWidget * parent );
+  MyWidget( QWidget * parent );
 
   // Change widget background and foreground colors
   enum PaletteRole {
@@ -27,9 +25,6 @@ public:
   Q_DECLARE_FLAGS( PaletteRoles, PaletteRole )
   Q_FLAG( PaletteRoles )
 
-  void setWidgetBackground( const QColor& c, QPalette* p = NULL, bool set = true );
-  static const QMetaObject* getQtMetaObject()
-  {
-    return &staticMetaObject;
-  }
+  static void setWidgetBackground( QWidget* w, const QColor& c, QPalette* p = NULL  , PaletteRoles role = RoleAll );
+
 };
